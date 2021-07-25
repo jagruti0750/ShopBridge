@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ShopBridgeEntities.Inventory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InventoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InventoryDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InventoryType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InventoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InventoryDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InventoryType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InventoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InventoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InventoryID })
+        </td>
+    </tr>
+}
+
+</table>
